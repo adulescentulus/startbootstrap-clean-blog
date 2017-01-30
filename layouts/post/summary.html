@@ -6,6 +6,13 @@
                       {{ partial "meta.html" .}}
                   </p>
                   <hr class="small">
+                      {{ if isset .Params "coverimage" }}
+                      <div class="clearfix">
+                      <img src="{{ .Params.Coverimage }}" class="pull-left gap-right" alt="...">
+                      {{ end }}
                       <p>{{ .Description }}</p>
+                      {{ if isset .Params "coverimage" }}
+                      </div>
+                      {{ end }}
                 </div>
                 <hr>

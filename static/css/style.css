@@ -51,3 +51,7 @@ body>header div.page-heading div.title {
 	text-align: left;
 	padding: 10px;
 }
+
+.gap-right {
+	margin-right: 10px;
+}
