@@ -6,7 +6,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{- if isset .Params "description" -}}
     <meta name="description" content="{{ .Description }}">
+    {{- else -}}
+    <meta name="description" content="{{ .Site.Params.Description }}">
+    {{- end -}}
     <meta name="author" content="{{ .Site.Params.author }}">
 
     <title>{{ .Title }} -- {{ .Site.Title }}</title>
