@@ -30,7 +30,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                  {{ replace .Content "<table>" "<table class='table table-hover'>" | markdownify }}
+		{{ replace .Content "<table>" "<table class='table table-hover'>" | replaceRE "<img src=\"/img/([^\"]+)\" alt=\"([^\"]+)\" /></p>" "<img src=\"https://s3.eu-central-1.amazonaws.com/serverlessimageresize-imagebucket-1w717sjpvwluu/800w/$1\" srcset=\"data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==\" data-srcset=\"https://s3.eu-central-1.amazonaws.com/serverlessimageresize-imagebucket-1w717sjpvwluu/800x/$1 800w, https://s3.eu-central-1.amazonaws.com/serverlessimageresize-imagebucket-1w717sjpvwluu/200w/$1 200w, https://s3.eu-central-1.amazonaws.com/serverlessimageresize-imagebucket-1w717sjpvwluu/400x/$1 400w, https://s3.eu-central-1.amazonaws.com/serverlessimageresize-imagebucket-1w717sjpvwluu/1900x/$1 1900w\" data-sizes=\"auto\" class=\"lazyload\" />" | markdownify }}
                   <hr class="margin">
                   {{ partial "comments.html" .}}
                 </div>
