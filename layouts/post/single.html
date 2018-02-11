@@ -2,8 +2,8 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    {{ if isset .Params "image" }}<header class="intro-header lazyload" data-bgset="http://img.networkchallenge.de/800x/{{ .Params.image }} 800w, http://img.networkchallenge.de/400x/{{ .Params.image }} 400w, http://img.networkchallenge.de/1600x/{{ .Params.image }} 1600w, http://img.networkchallenge.de/2100x/{{ .Params.image }} 2100w" data-sizes="auto">
-      {{ else }}<header class="intro-header" style="background-image: url('{{ .Site.BaseURL }}/img/home-bg.jpg')">
+    {{ if isset .Params "image" }}<header class="intro-header lazyload" data-bgset="{{ .Site.Params.Imgurl }}/800x/{{ .Params.image }} 800w, {{ .Site.Params.Imgurl }}/400x/{{ .Params.image }} 400w, {{ .Site.Params.Imgurl }}/1600x/{{ .Params.image }} 1600w, {{ .Site.Params.Imgurl }}/2100x/{{ .Params.image }} 2100w, {{ .Site.Params.Imgurl }}/3200x/{{ .Params.image }} 3200w" data-sizes="auto">
+      {{ else }}<header class="intro-header lazyload" data-bgset="{{ .Site.Params.Imgurl }}/800x/home-bg.jpg 800w, {{ .Site.Params.Imgurl }}/400x/home-bg.jpg 400w, {{ .Site.Params.Imgurl }}/1600x/home-bg.jpg 1600w, {{ .Site.Params.Imgurl }}/2100x/home-bg.jpg 2100w, {{ .Site.Params.Imgurl }}/3200x/home-bg.jpg 3200w" data-sizes="auto">
     {{ end }}
       <div class="header-bg">
       <div class="container">

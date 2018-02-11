@@ -1,5 +1,5 @@
     <!-- Page Header -->
-    <header class="intro-header" style="background-image: url('{{ .Site.BaseURL }}/img/home-bg.jpg')">
+    <header class="intro-header lazyload" data-bgset="{{ .Site.Params.Imgurl }}/800x/home-bg.jpg 800w, {{ .Site.Params.Imgurl }}/400x/home-bg.jpg 400w, {{ .Site.Params.Imgurl }}/1600x/home-bg.jpg 1600w, {{ .Site.Params.Imgurl }}/2100x/home-bg.jpg 2100w" data-sizes="auto">
       <div class="header-bg">
        <div class="container">
          <div class="row">
