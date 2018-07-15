@@ -8,7 +8,7 @@
                   <hr class="small">
                       {{ if isset .Params "coverimage" }}
                       <div class="clearfix">
-                      <img src="//img.networkchallenge.de/160x/{{ .Params.Coverimage }}" class="pull-left gap-right" alt="...">
+                      <img src="{{ .Site.Params.Imgurl }}/160x/{{ .Params.Coverimage }}" class="pull-left gap-right" alt="...">
                       {{ end }}
                       <p>{{ .Description }}</p>
                       {{ if isset .Params "coverimage" }}
