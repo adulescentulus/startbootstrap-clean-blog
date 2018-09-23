@@ -25,5 +25,6 @@ categories = [
 description = ""
 draft = true
 comments = true
-date: {{ .Date }}
+date = {{ .Date }}
+title = ""
 +++
