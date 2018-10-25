@@ -1,36 +1,36 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
+<html lang="{{ .context.Site.LanguageCode }}">
 
 <head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{- if isset .Params "description" -}}
-    <meta name="description" content="{{ .Description }}">
+    {{- if .context.Description -}}
+    <meta name="description" content="{{ .context.Description }}">
     {{- else -}}
-    <meta name="description" content="{{ .Site.Params.Description }}">
+    <meta name="description" content="{{ .context.Site.Params.description }}">
     {{- end -}}
-    <meta name="author" content="{{ .Site.Params.author }}">
+    <meta name="author" content="{{ .context.Site.Params.author }}">
 
-    <title>{{ .Title }} -- {{ .Site.Title }}</title>
+    <title>{{ .context.Title }} -- {{ .context.Site.Title }}</title>
 
-    {{ if .RSSLink }}
-    <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
-    <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
+    {{ if .context.RSSLink }}
+    <link href="{{ .context.RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .context.Site.Title }}" />
+    <link href="{{ .context.RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .context.Site.Title }}" />
     {{ end }}
 
     <!-- Bootstrap Core CSS -->
-    <link href="{{ .Site.BaseURL }}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ .context.Site.BaseURL }}/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="{{ .Site.BaseURL }}/css/clean-blog.min.css" rel="stylesheet">
-    <link href="{{ .Site.BaseURL }}/css/style.css" rel="stylesheet">
+    <link href="{{ .context.Site.BaseURL }}/css/clean-blog.min.css" rel="stylesheet">
+    <link href="{{ .context.Site.BaseURL }}/css/style.css" rel="stylesheet">
     <!-- Custom Fonts -->
-    <link href="{{ .Site.BaseURL }}/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ .context.Site.BaseURL }}/css/font-awesome.min.css" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ .Site.BaseURL }}/img/favicon.png">
+    <link rel="icon" type="image/png" href="{{ .context.Site.BaseURL }}/img/favicon.png">
 
     <!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
@@ -61,11 +61,11 @@
         function loadJS(u){var r=document.getElementsByTagName("script")[0],s=document.createElement("script");s.src=u;r.parentNode.insertBefore(s,r);}
 
         if(!window.HTMLPictureElement || !('sizes' in document.createElement('img'))){
-            loadJS("{{ .Site.BaseURL }}/js/ls.respimg.min.js");
+            loadJS("{{ .context.Site.BaseURL }}/js/ls.respimg.min.js");
         }
     </script>
-    <script src="{{ .Site.BaseURL }}/js/ls.bgset.min.js"></script>
-    <script src="{{ .Site.BaseURL }}/js/lazysizes.min.js" async=""></script>
+    <script src="{{ .context.Site.BaseURL }}/js/ls.bgset.min.js"></script>
+    <script src="{{ .context.Site.BaseURL }}/js/lazysizes.min.js" async=""></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -74,7 +74,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <link type="text/css" rel="stylesheet" href="{{ .Site.BaseURL }}/css/lightgallery.min.css" />
+    <link type="text/css" rel="stylesheet" href="{{ .context.Site.BaseURL }}/css/lightgallery.min.css" />
     
   <script>
       var gaProperty = 'UA-259583-6';
@@ -92,6 +92,10 @@
 	  gtag('config', 'UA-259583-6', { 'anonymize_ip': true });
 	</script>
 
+    {{- if isset . "showmap" -}}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+    {{- end -}}
 </head>
 
 <body>
@@ -107,7 +111,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+                <a class="navbar-brand" href="{{ .context.Site.BaseURL }}">{{ .context.Site.Title }}</a>
             </div>
 
             {{ partial "navbar.html" . }}

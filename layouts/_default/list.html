@@ -1,4 +1,4 @@
-{{ partial "header.html" . }}
+{{ partial "header.html" (dict "context" . "showmap" 1) }}
 {{ partial "tax-header.html" . }}
 
     <!-- Main Content -->
@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           {{ range .Paginator.Pages }}
-              {{ .Render "archive" }}
+              {{ .Render "summary" }}
           {{ end }}
           {{ template "_internal/pagination.html" . }}
         </div>
