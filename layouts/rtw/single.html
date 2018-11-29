@@ -45,7 +45,7 @@
     for ( var i=0; i < markers.length; ++i ) 
     {
         if (i==markers.length-1) {
-            L.marker( [markers[i].lat, markers[i].lng], {icon: greenIcon} )
+            L.marker( [markers[i].lat, markers[i].lng], {icon: greenIcon, zIndexOffset: 1000} )
             //.bindPopup( '<a href="' + markers[i].url + '" target="_blank">' + markers[i].name + '</a>' )
                 .addTo( mymap );
         }
