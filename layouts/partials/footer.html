@@ -26,7 +26,8 @@
                     </li>
                     {{ end }}
                   </ul>
-                  <p class="copyright text-muted"><a href="/privacypolicy/index.html" title="Datenschutzerklärung">Datenschutzerklärung</a><br>{{ .Site.Copyright }}</p>
+                  <p class="copyright text-muted"><a href="/privacypolicy/index.html" title="Datenschutzerklärung">Datenschutzerklärung</a>
+                    <br>Copyright © <a href="{{ absURL "about" }}">Andreas Groll</a> 2018</p>
                 </div>
             </div>
         </div>
@@ -36,11 +37,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="{{ .Site.BaseURL }}/js/bootstrap.min.js"></script>
+    <script src="{{ absURL "/js/bootstrap.min.js" }}"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="{{ .Site.BaseURL }}/js/clean-blog.js"></script>
-    <script src="{{ .Site.BaseURL }}/js/lightgallery.min.js"></script>
+    <script src="{{ absURL "js/clean-blog.js" }}"></script>
+    <script src="{{ absURL "js/lightgallery.min.js" }}"></script>
     <script>$(document).ready(function () {
     $('#post').lightGallery({
       selector: '.gallery'

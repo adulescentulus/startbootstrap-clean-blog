@@ -21,13 +21,13 @@
     {{ end }}
 
     <!-- Bootstrap Core CSS -->
-    <link href="{{ .context.Site.BaseURL }}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ absURL "/css/bootstrap.min.css" }}" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="{{ .context.Site.BaseURL }}/css/clean-blog.min.css" rel="stylesheet">
-    <link href="{{ .context.Site.BaseURL }}/css/style.css" rel="stylesheet">
+    <link href="{{ absURL "/css/clean-blog.min.css" }}" rel="stylesheet">
+    <link href="{{ absURL "/css/style.css" }}" rel="stylesheet">
     <!-- Custom Fonts -->
-    <link href="{{ .context.Site.BaseURL }}/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ absURL "/css/font-awesome.min.css" }}" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ .context.Site.BaseURL }}/img/favicon.png">
@@ -65,7 +65,7 @@
         }
     </script>
     <script src="{{ .context.Site.BaseURL }}/js/ls.bgset.min.js"></script>
-    <script src="{{ .context.Site.BaseURL }}/js/lazysizes.min.js" async=""></script>
+    <script src="{{ absURL "/js/lazysizes.min.js" }}" async=""></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -74,7 +74,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <link type="text/css" rel="stylesheet" href="{{ .context.Site.BaseURL }}/css/lightgallery.min.css" />
+    <link type="text/css" rel="stylesheet" href="{{ absURL "/css/lightgallery.min.css" }}" />
     
   <script>
       var gaProperty = 'UA-259583-6';
