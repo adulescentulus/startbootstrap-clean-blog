@@ -1,0 +1,6 @@
+Von {{ if isset .Params "author" }}
+{{ range where .Site.Params.authoren "key" "=" .Params.author}}
+{{.name}}{{end}}
+{{ else }}
+Andreas Groll
+{{ end }}

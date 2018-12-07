@@ -1,7 +1,8 @@
 {{ if .Site.Params.ShowReadTime }}
   A {{ .ReadingTime }} minute read,
 {{ end }}
-<!--Posted by <a href="#">{{ .Site.Params.Author }}</a> on-->{{ dateFormat .Site.Params.DateForm .Date }}
+{{ partial "author.html" .}}
+am {{ dateFormat .Site.Params.DateForm .Date }}
 <br />
 {{ partial "categories.html" .}}
 {{ partial "tags.html" .}}
