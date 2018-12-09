@@ -8,7 +8,7 @@
       <div class="header-bg">
       <div class="container">
         <div class="row">
-           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+           <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
             <div class="page-heading">
              <div class="title">
                <h1>{{ .Title }}</h1>
@@ -29,11 +29,25 @@
     <article>
         <div class="container" id="post">
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
 		{{ replace .Content "<table>" "<table class='table table-hover'>" | replaceRE "<img src=\"/img/([^\"]+[.].*)\" alt=\"([^\"]+)\" title=\"([^\"]+)\" /></p>" "<img src=\"https://imgs.networkchallenge.de/800x/$1\" alt=\"$2\" title=\"$3\" srcset=\"data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==\" data-srcset=\"https://imgs.networkchallenge.de/800x/$1 800w, https://imgs.networkchallenge.de/400x/$1 400w, https://imgs.networkchallenge.de/1600x/$1 1600w, https://imgs.networkchallenge.de/2100x/$1 2100w\" data-sizes=\"auto\" class=\"gallery lazyload\" />" | replaceRE "<img src=\"/img/([^\"]+[.].*)\" alt=\"([^\"]+)\" /></p>" "<img src=\"https://imgs.networkchallenge.de/800x/$1\" alt=\"$2\" title=\"$2\" srcset=\"data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==\" data-srcset=\"https://imgs.networkchallenge.de/800x/$1 800w, https://imgs.networkchallenge.de/400x/$1 400w, https://imgs.networkchallenge.de/1600x/$1 1600w, https://imgs.networkchallenge.de/2100x/$1 2100w\" data-sizes=\"auto\" class=\"gallery lazyload\" />" | markdownify }}
-                  <hr class="margin">
-                  {{ partial "comments.html" .}}
                 </div>
+                <div class="col-lg-2 col-lg-offset-0 col-md-10 col-md-offset-1">
+                    <div style="border: 1px solid black">
+                    {{ if isset .Params "author" }}
+                        {{ $author := index .Site.Data.authors .Params.author }}
+                        {{ $author.name }}
+                    {{ else }}
+                        {{ $author := index .Site.Data.authors "groll" }}
+                        {{ $author.name }}
+                    {{ end }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
+                {{ partial "comments.html" .}}
+              </div>
             </div>
         </div>
     </article>

@@ -1,0 +1,8 @@
+Von 
+{{ if isset .Params "author" }}
+    {{ $author := index .Site.Data.authors .Params.author }}
+    {{ $author.name }}
+{{ else }}
+    {{ $author := index .Site.Data.authors "groll" }}
+    {{ $author.name }}
+{{ end }}

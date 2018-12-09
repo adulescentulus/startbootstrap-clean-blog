@@ -2,10 +2,12 @@
                  <a href="{{ .Permalink }}">
                       <h2 class="post-title">{{ .Title }}</h2>
                     </a>
-                    <p class="post-meta">
-                      {{ partial "meta.html" (dict "context" .)}}
-                  </p>
-                  <hr class="small">
+                    <!-- <p class="post-meta"> -->
+                      <span class="meta">
+                        {{ partial "meta.html" (dict "context" .)}}
+                        </span>
+                    <!-- </p> -->
+                    <hr class="small">
                       {{ if isset .Params "coverimage" }}
                       <div class="clearfix">
                       <img src="{{ .Site.Params.Imgurl }}/160x/{{ .Params.Coverimage }}" class="pull-left gap-right" alt="...">

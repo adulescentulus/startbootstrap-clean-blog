@@ -1,7 +1,9 @@
 <!--Posted by <a href="#">{{ .Site.Params.Author }}</a> on-->
-<i class="fa fa-calendar" aria-hidden="true"></i> {{ dateFormat .context.Site.Params.dateform .context.Date }}&nbsp;
+{{ partial "author.html" .context }} <br>
+<div><i class="fa fa-calendar" aria-hidden="true"></i> {{ dateFormat .context.Site.Params.dateform .context.Date }}</div>
 {{- if isset . "showreadingtime" -}}
-<i class="fa fa-clock-o" aria-hidden="true"></i> ca. {{ .context.ReadingTime }} Minuten{{- end -}}
-<br />
+<div><i class="fa fa-clock-o" aria-hidden="true"></i> ca. {{ .context.ReadingTime }} Minuten</div>
+{{- end -}}
 {{ partial "categories.html" .context}}
 {{ partial "tags.html" .context}}
+<br style="clear: both">
