@@ -13,7 +13,7 @@
              <div class="title">
                <h1>{{ .Title }}</h1>
                <span class="meta">
-                 {{ partial "meta.html" .}}
+                 {{ partial "meta.html" (dict "context" . "showreadingtime" 1)}}
                </span>
                <hr class="small">
                <h2 class="subheading">{{ .Description }}</h2>

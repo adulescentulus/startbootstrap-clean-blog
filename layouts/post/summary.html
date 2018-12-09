@@ -3,7 +3,7 @@
                       <h2 class="post-title">{{ .Title }}</h2>
                     </a>
                     <p class="post-meta">
-                      {{ partial "meta.html" .}}
+                      {{ partial "meta.html" (dict "context" .)}}
                   </p>
                   <hr class="small">
                       {{ if isset .Params "coverimage" }}

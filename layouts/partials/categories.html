@@ -1,4 +1,4 @@
-In: {{ range $index, $c :=  .Params.categories }}
+<i class="fa fa-folder-o" aria-hidden="true"></i> {{ range $index, $c :=  .Params.categories }}
   {{- if eq $index 0 -}}
     <a href="/categories/{{ urlize . }}">{{ lower . }}</a>
   {{- else -}}
