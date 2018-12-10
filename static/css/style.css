@@ -65,3 +65,23 @@ body>header div.page-heading div.title {
 	float: left;
 	padding-right: 10px;
 }
+
+.author-head {
+	background: #ddd;
+	font-size: 16px;
+	text-align: center;
+}
+
+.author-social {
+	background: #eee;
+	padding-bottom: 15px;
+	font-size: 14px;
+}
+.author {
+	background: #eee;
+	padding-top: 15px;
+	font-size: 14px;
+}
+.avatar p{
+	text-align: center;
+}

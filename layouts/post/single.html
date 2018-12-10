@@ -1,5 +1,11 @@
 {{ partial "header.html" (dict "context" . "showmap" 1) }}
-
+{{ if isset .Params "author" }}
+    {{ $author := index .Site.Data.authors .Params.author }}
+    {{ .Page.Scratch.Add "author" $author }}
+{{ else }}
+    {{ $author := index .Site.Data.authors "groll" }}
+    {{ .Page.Scratch.Add "author" $author }}
+{{ end }}
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
     {{ if isset .Params "image" }}<header class="intro-header lazyload" data-bgset="{{ .Site.Params.Imgurl }}/800x/{{ .Params.image }} 800w, {{ .Site.Params.Imgurl }}/400x/{{ .Params.image }} 400w, {{ .Site.Params.Imgurl }}/1600x/{{ .Params.image }} 1600w, {{ .Site.Params.Imgurl }}/2100x/{{ .Params.image }} 2100w, {{ .Site.Params.Imgurl }}/3200x/{{ .Params.image }} 3200w" data-sizes="auto">
@@ -8,7 +14,7 @@
       <div class="header-bg">
       <div class="container">
         <div class="row">
-           <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
+           <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-xs-12 col-xs-offset-0">
             <div class="page-heading">
              <div class="title">
                <h1>{{ .Title }}</h1>
@@ -29,23 +35,44 @@
     <article>
         <div class="container" id="post">
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
+                <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 col-xs-12 col-xs-offset-0">
 		{{ replace .Content "<table>" "<table class='table table-hover'>" | replaceRE "<img src=\"/img/([^\"]+[.].*)\" alt=\"([^\"]+)\" title=\"([^\"]+)\" /></p>" "<img src=\"https://imgs.networkchallenge.de/800x/$1\" alt=\"$2\" title=\"$3\" srcset=\"data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==\" data-srcset=\"https://imgs.networkchallenge.de/800x/$1 800w, https://imgs.networkchallenge.de/400x/$1 400w, https://imgs.networkchallenge.de/1600x/$1 1600w, https://imgs.networkchallenge.de/2100x/$1 2100w\" data-sizes=\"auto\" class=\"gallery lazyload\" />" | replaceRE "<img src=\"/img/([^\"]+[.].*)\" alt=\"([^\"]+)\" /></p>" "<img src=\"https://imgs.networkchallenge.de/800x/$1\" alt=\"$2\" title=\"$2\" srcset=\"data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==\" data-srcset=\"https://imgs.networkchallenge.de/800x/$1 800w, https://imgs.networkchallenge.de/400x/$1 400w, https://imgs.networkchallenge.de/1600x/$1 1600w, https://imgs.networkchallenge.de/2100x/$1 2100w\" data-sizes=\"auto\" class=\"gallery lazyload\" />" | markdownify }}
                 </div>
-                <div class="col-lg-2 col-lg-offset-0 col-md-10 col-md-offset-1">
-                    <div style="border: 1px solid black">
-                    {{ if isset .Params "author" }}
-                        {{ $author := index .Site.Data.authors .Params.author }}
-                        {{ $author.name }}
-                    {{ else }}
-                        {{ $author := index .Site.Data.authors "groll" }}
-                        {{ $author.name }}
-                    {{ end }}
+                <div class="col-lg-2 col-lg-offset-0 col-md-10 col-md-offset-1 col-xs-12 col-xs-offset-0">
+                  <div class="row author-head">
+                      <div class="col-lg-12 col-xs-12">
+                        <a name="author">Über den Author</a>
+                      </div>
+                  </div>
+                  <div class="row author">
+                    
+                    <div class="col-lg-12 col-xs-3">
+                      <div class="avatar">
+                        <p>
+                          <img src="/img/avatar_200.jpg" style="border-radius: 50%;" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="/img/avatar_200.jpg 200w, /img/avatar_400.jpg 400w" data-sizes="auto" class="lazyload">
+                        </p>
+                        <p>{{ (.Page.Scratch.Get "author").name }}</p>
+                      </div>
                     </div>
+                    <div class="col-lg-12 col-xs-9">
+                      <p>
+                        {{ (.Page.Scratch.Get "author").intro }}
+                      </p>
+                    </div>
+                  </div>
+                  {{ if isset (.Page.Scratch.Get "author") "social" }}
+                  <div class="row author-social">
+                      <div class="col-lg-12 col-xs-12">
+                          {{ range (.Page.Scratch.Get "author").social }}
+                            <a href="{{ .url }}"><span class="fa-stack fa-lg"><i class="fa fa-square fa-stack-2x"></i><i class="fa fa-{{ .title }} fa-stack-1x fa-inverse"></i></span></a>
+                          {{ end }}
+                      </div>
+                  </div>
+                  {{ end }}
                 </div>
             </div>
             <div class="row">
-              <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
+              <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 col-xs-12 col-xs-offset-0">
                 {{ partial "comments.html" .}}
               </div>
             </div>
