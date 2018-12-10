@@ -19,7 +19,7 @@
              <div class="title">
                <h1>{{ .Title }}</h1>
                <span class="meta">
-                 {{ partial "meta.html" (dict "context" . "showreadingtime" 1)}}
+                 {{ partial "meta.html" (dict "context" . "isPage" 1)}}
                </span>
                <hr class="small">
                <h2 class="subheading">{{ .Description }}</h2>
@@ -48,7 +48,7 @@
                     
                     <div class="col-lg-12 col-xs-3">
                       <div class="avatar">
-                          <img src="https://imgs.networkchallenge.de/100x/avatar/{{ (.Page.Scratch.Get "author").avatar }}" style="border-radius: 50%;" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="https://imgs.networkchallenge.de/100x/avatar/{{ (.Page.Scratch.Get "author").avatar }} 100w, https://imgs.networkchallenge.de/200x/avatar/{{ (.Page.Scratch.Get "author").avatar }} 200w, https://imgs.networkchallenge.de/400x/avatar/{{ (.Page.Scratch.Get "author").avatar }} 400w" data-sizes="auto" class="lazyload">
+                          <img src="https://imgs.networkchallenge.de/200x/avatar/{{ (.Page.Scratch.Get "author").avatar }}" style="border-radius: 50%;" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-srcset="https://imgs.networkchallenge.de/100x/avatar/{{ (.Page.Scratch.Get "author").avatar }} 100w, https://imgs.networkchallenge.de/200x/avatar/{{ (.Page.Scratch.Get "author").avatar }} 200w, https://imgs.networkchallenge.de/400x/avatar/{{ (.Page.Scratch.Get "author").avatar }} 400w" data-sizes="auto" class="lazyload">
                         <p>{{ (.Page.Scratch.Get "author").name }}</p>
                       </div>
                     </div>
