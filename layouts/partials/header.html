@@ -13,7 +13,7 @@
     {{- end -}}
     <meta name="author" content="{{ .context.Site.Params.author }}">
 
-    <title>{{ .context.Title }} -- {{ .context.Site.Title }}</title>
+    <title>{{ .context.Title | safeHTML }} -- {{ .context.Site.Title }}</title>
 
     {{ if .context.RSSLink }}
     <link href="{{ .context.RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .context.Site.Title }}" />
