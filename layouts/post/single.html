@@ -17,12 +17,12 @@
            <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-xs-12 col-xs-offset-0">
             <div class="page-heading">
              <div class="title">
-               <h1>{{ .Title }}</h1>
+               <h1>{{ .Title | safeHTML }}</h1>
                <span class="meta">
                  {{ partial "meta.html" (dict "context" . "isPage" 1)}}
                </span>
                <hr class="small">
-               <h2 class="subheading">{{ .Description }}</h2>
+               <h2 class="subheading">{{ .Description | safeHTML }}</h2>
              </div>
             </div>
            </div>
