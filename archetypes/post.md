@@ -20,7 +20,7 @@ categories = [
     "tech",
     "reise"
 ]
-#image - "home-bg.jpg" is the default
+#image = "home-bg.jpg"
 #coverimage = "some.jpg"
 description = ""
 draft = true
