@@ -8,8 +8,12 @@
 {{ end }}
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    {{ if isset .Params "image" }}<header class="intro-header lazyload" data-bgset="{{ .Site.Params.Imgurl }}/800x/{{ .Params.image }} 800w, {{ .Site.Params.Imgurl }}/400x/{{ .Params.image }} 400w, {{ .Site.Params.Imgurl }}/1600x/{{ .Params.image }} 1600w, {{ .Site.Params.Imgurl }}/2100x/{{ .Params.image }} 2100w, {{ .Site.Params.Imgurl }}/3200x/{{ .Params.image }} 3200w" data-sizes="auto">
-      {{ else }}<header class="intro-header lazyload" data-bgset="{{ .Site.Params.Imgurl }}/800x/home-bg.jpg 800w, {{ .Site.Params.Imgurl }}/400x/home-bg.jpg 400w, {{ .Site.Params.Imgurl }}/1600x/home-bg.jpg 1600w, {{ .Site.Params.Imgurl }}/2100x/home-bg.jpg 2100w, {{ .Site.Params.Imgurl }}/3200x/home-bg.jpg 3200w" data-sizes="auto">
+    {{ if .Params.images }}
+    {{ .Scratch.Set "headerimg" (first 1 (where .Params.images "type" "header") | default (first 1 (where (where .Params.images "type" "postimg") "header" true))) }}
+    {{ end }}
+    {{ if .Scratch.Get "headerimg" }}
+      {{ range first 1 (.Scratch.Get "headerimg") }}<header class="intro-header lazyload" data-bgset="{{ $.Site.Params.Imgurl }}/800x/{{ .src }} 800w, {{ $.Site.Params.Imgurl }}/400x/{{ .src }} 400w, {{ $.Site.Params.Imgurl }}/1600x/{{ .src }} 1600w, {{ $.Site.Params.Imgurl }}/2100x/{{ .src }} 2100w, {{ $.Site.Params.Imgurl }}/3200x/{{ .src }} 3200w" data-sizes="auto">{{end}}
+    {{ else }}<header class="intro-header lazyload" data-bgset="{{ .Site.Params.Imgurl }}/800x/home-bg.jpg 800w, {{ .Site.Params.Imgurl }}/400x/home-bg.jpg 400w, {{ .Site.Params.Imgurl }}/1600x/home-bg.jpg 1600w, {{ .Site.Params.Imgurl }}/2100x/home-bg.jpg 2100w, {{ .Site.Params.Imgurl }}/3200x/home-bg.jpg 3200w" data-sizes="auto">
     {{ end }}
       <div class="header-bg">
       <div class="container">
